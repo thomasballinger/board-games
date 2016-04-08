@@ -41,9 +41,7 @@ def get_move(player, board, piece):
 
 def update_board(board, move, piece):
     '''Updates the board with a new move and returns it'''
-
     board[move] = piece
-    return board
 
 
 def check_victory(board, piece):
