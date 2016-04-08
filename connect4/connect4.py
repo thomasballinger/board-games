@@ -22,7 +22,6 @@ def get_move(player, board):
     player_piece = {'P1': 'X', 'P2': 'O'}
     move = input('{}, type the number of desired column:\n'.format(player))
     move_int = int(move)
-    move_index = move_int - 1
     while True:
         if move in [str(i) for i in range(len(board))]:
             if board[move_int][-1] == ' ':
@@ -40,10 +39,12 @@ def victory_checker(board):
     pass
     # '''Returns True if victory, False if continue, and 'draw' if a tie'''
 
+
 def draw_checker(board):
     pass
     # check if there are any valid moves remaining
     # return True if there aren't any
+
 
 def move_recorder(move, move_history):
     pass
@@ -51,16 +52,11 @@ def move_recorder(move, move_history):
     # return the new move history
 
 
-
-
 def main():
     pass
 
 # if __name__ == '__main__':
 #     main()
-
-
-
 
 
 '''Function that returns the desired board size

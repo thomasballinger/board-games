@@ -19,6 +19,7 @@ def display_board(board):
     print(empty_row)
     print('')
 
+
 def get_move(player, board, piece):
     '''Returns a new move from either player,
     or the computer if a 1 player game'''
@@ -38,26 +39,29 @@ def get_move(player, board, piece):
     elif player == 'Computer':
         return computer_move(board, piece)
 
+
 def update_board(board, move, piece):
     '''Updates the board with a new move and returns it'''
 
     board[move] = piece
     return board
 
+
 def check_victory(board, piece):
     '''Checks whether the victory conditions are met for a given player'''
 
     if ((board[1] == piece and board[2] == piece and board[3] == piece) or
-    (board[4] == piece and board[5] == piece and board[6] == piece) or
-    (board[7] == piece and board[8] == piece and board[9] == piece) or
-    (board[1] == piece and board[4] == piece and board[7] == piece) or
-    (board[2] == piece and board[5] == piece and board[8] == piece) or
-    (board[3] == piece and board[6] == piece and board[9] == piece) or
-    (board[1] == piece and board[5] == piece and board[9] == piece) or
-    (board[3] == piece and board[5] == piece and board[7] == piece)):
+            (board[4] == piece and board[5] == piece and board[6] == piece) or
+            (board[7] == piece and board[8] == piece and board[9] == piece) or
+            (board[1] == piece and board[4] == piece and board[7] == piece) or
+            (board[2] == piece and board[5] == piece and board[8] == piece) or
+            (board[3] == piece and board[6] == piece and board[9] == piece) or
+            (board[1] == piece and board[5] == piece and board[9] == piece) or
+            (board[3] == piece and board[5] == piece and board[7] == piece)):
         return True
     else:
         return False
+
 
 def play_again():
     '''Returns input from the player whether or not to start a new game'''
@@ -67,6 +71,7 @@ def play_again():
     else:
         return False
 
+
 def one_or_two_players():
     '''Returns input from the player whether to start in 1 or 2 player mode'''
 
@@ -74,6 +79,7 @@ def one_or_two_players():
         return 2
     else:
         return 1
+
 
 def play(first_mover):
     '''Function that actually handles playing the game'''
@@ -106,6 +112,7 @@ def play(first_mover):
     else:
         print('Thanks for playing!')
         return None
+
 
 def computer_move(board, piece):
     '''Returns a move for the computer in 1 player mode'''
