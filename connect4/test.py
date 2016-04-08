@@ -9,7 +9,7 @@ class Tests(u.TestCase):
 
 if __name__ == '__main__':
     board = [
-            ['X', ' ', ' ', ' ', ' '], 
+            ['X', ' ', ' ', ' ', ' '],
             ['X', ' ', ' ', ' ', ' '],
             ['X', 'X', ' ', ' ', ' '],
             ['X', ' ', ' ', ' ', ' '],
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 # print(board)
 
 # should print a properly displayed 5x5 board with 'X' on bottom row
-# board2 = [['X', ' ', ' ', ' ', ' '], 
+# board2 = [['X', ' ', ' ', ' ', ' '],
 #           ['X', ' ', ' ', ' ', ' '],
 #           ['X', 'X', ' ', ' ', ' '],
 #           ['X', ' ', ' ', ' ', ' '],

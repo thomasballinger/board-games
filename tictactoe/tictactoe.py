@@ -20,7 +20,7 @@ def board_displayer(board):
     print('')
 
 def move_getter(player, board, piece):
-    '''Returns a new move from either player, 
+    '''Returns a new move from either player,
     or the computer if a 1 player game'''
 
     if player in ('Player 1', 'Player 2'):
@@ -170,12 +170,12 @@ def computer_move(board, piece):
         if 5 in open_spaces:
             return 5
     if open_corners:
-        good_corners = [l for l in open_corners if transform_sides[l] 
+        good_corners = [l for l in open_corners if transform_sides[l]
                         in open_corners]
         if good_corners:
             return random.choice(good_corners)
     if 5 in open_spaces:
-        return 5            
+        return 5
     good_sides = [l for l in open_sides if transform_sides[l] in open_sides]
     if good_sides:
         return random.choice(good_sides)
@@ -184,7 +184,6 @@ def computer_move(board, piece):
     else:
         return None
 
-    
 
 if __name__ == '__main__':
     players = one_or_two_players()
@@ -195,5 +194,5 @@ if __name__ == '__main__':
         invert_dict = {'Player 1': 'Computer', 'Computer': 'Player 1'}
         player_dict = {'Player 1': 'X', 'Computer': 'O'}
     play('Player 1')
-    
+
 

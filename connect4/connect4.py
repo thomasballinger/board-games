@@ -16,7 +16,7 @@ def board_printer(board):
         print(row)
     print('\n')
     print([str(i + 1) for i in range(board_width)])
-            
+
 
 def move_getter(player, board):
     player_piece = {'P1': 'X', 'P2': 'O'}
@@ -34,7 +34,7 @@ def move_getter(player, board):
                 move = input('That column is full! Pick another:\n')
         else:
             move = input('Please enter a number of a column:\n')
-    
+
 
 def victory_checker(board):
     pass
