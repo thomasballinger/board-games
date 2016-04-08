@@ -16,9 +16,9 @@ if __name__ == '__main__':
             ['X', ' ', ' ', ' ', ' ']
             ]
     # u.main()
-    board, move = c.move_getter('P1', board)
+    board, move = c.get_move('P1', board)
     print(move)
-    c.board_printer(board)
+    c.print_board(board)
 
 
 # should print a normal board as a list of lists

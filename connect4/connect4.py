@@ -1,11 +1,11 @@
-def board_maker(x, y):
+def make_board(x, y):
     '''Returns a board data structure based on the two dimensions passed in'''
     column = [' ' for y in range(y)]
     board = [column for x in range(x)]
     return board
 
 
-def board_printer(board):
+def print_board(board):
     '''Takes the current board structure and prints it to the terminal'''
     board_width = len(board)
     board_height = len(board[0])
@@ -18,7 +18,7 @@ def board_printer(board):
     print([str(i + 1) for i in range(board_width)])
 
 
-def move_getter(player, board):
+def get_move(player, board):
     player_piece = {'P1': 'X', 'P2': 'O'}
     move = input('{}, type the number of desired column:\n'.format(player))
     move_int = int(move)
