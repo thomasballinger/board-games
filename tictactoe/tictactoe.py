@@ -87,7 +87,7 @@ def play(first_mover):
                 play(player)
             else:
                 print('Thanks for playing!')
-                return None
+                return
         player = invert_dict[player]
     display_board(board)
     print('Congratulations {}, you won!\n'.format(player.lower()))
@@ -104,11 +104,11 @@ def computer_move(board, piece):
 
     invert_piece = {'X': 'O', 'O': 'X'}
     opp_piece = invert_piece[piece]
-    transform_sides = {1:9, 9:1, 2:8, 8:2, 3:7, 7:3, 4:6, 6:4}
+    transform_sides = {1: 9, 9: 1, 2: 8, 8: 2, 3: 7, 7: 3, 4: 6, 6: 4}
     corners = (1, 3, 7, 9)
     sides = (2, 4, 6, 8)
     board_tuple = tuple(board)
-    open_spaces = tuple([loc for loc in board_tuple if str(loc).isdigit()])
+    open_spaces = tuple(loc for loc in board_tuple if str(loc).isdigit())
     for loc in board_tuple:
         if loc in open_spaces:
             test_board = list(board_tuple)
@@ -148,14 +148,9 @@ def computer_move(board, piece):
             return 8
         if len(open_corners) == 3:
             if opp_piece in corners_list:
-                if board_tuple[1] == opp_piece:
-                    return 9
-                if board_tuple[3] == opp_piece:
-                    return 7
-                if board_tuple[7] == opp_piece:
-                    return 3
-                if board_tuple[9] == opp_piece:
-                    return 1
+                for maybeOpp, response in {1: 9, 3: 7, 7: 3, 9: 1}.items():
+                    if board_tuple[maybeOpp] == opp_piece:
+                        return response
     if len(open_spaces) == 5:
         if len(open_corners) == 1:
             return open_corners[0]
