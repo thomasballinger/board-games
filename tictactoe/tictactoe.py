@@ -47,35 +47,23 @@ def update_board(board, move, piece):
 def check_victory(board, piece):
     '''Checks whether the victory conditions are met for a given player'''
 
-    if ((board[1] == piece and board[2] == piece and board[3] == piece) or
-            (board[4] == piece and board[5] == piece and board[6] == piece) or
-            (board[7] == piece and board[8] == piece and board[9] == piece) or
-            (board[1] == piece and board[4] == piece and board[7] == piece) or
-            (board[2] == piece and board[5] == piece and board[8] == piece) or
-            (board[3] == piece and board[6] == piece and board[9] == piece) or
-            (board[1] == piece and board[5] == piece and board[9] == piece) or
-            (board[3] == piece and board[5] == piece and board[7] == piece)):
-        return True
-    else:
-        return False
+    for s1, s2, s3 in [
+            [1, 2, 3], [4, 5, 6], [7, 8, 9],
+            [1, 4, 7], [2, 5, 8], [3, 6, 9],
+            [1, 5, 9], [3, 5, 7]]:
+        if (board[s1] == board[s2] == board[s3] == piece):
+            return True
+    return False
 
 
 def play_again():
     '''Returns input from the player whether or not to start a new game'''
-
-    if input('Play again? y/n\n').lower() == 'y':
-        return True
-    else:
-        return False
+    return input('Play again? y/n\n').lower() == 'y'
 
 
 def one_or_two_players():
     '''Returns input from the player whether to start in 1 or 2 player mode'''
-
-    if input('One or two players? 1/2\n') == '2':
-        return 2
-    else:
-        return 1
+    return 2 if input('One or two players? 1/2\n') == '2' else 1
 
 
 def play(first_mover):
@@ -89,12 +77,12 @@ def play(first_mover):
             display_board(board)
         move = get_move(player, board, piece)
         update_board(board, move, piece)
-        if check_victory(board, piece) == True:
+        if check_victory(board, piece):
             break
-        if [loc for loc in board if str(loc).isdigit()] == []:
+        if not [loc for loc in board if str(loc).isdigit()]:
             display_board(board)
             print('The game ends in a draw.\n')
-            if play_again() == True:
+            if play_again():
                 player = invert_dict[player]
                 play(player)
             else:
@@ -103,12 +91,12 @@ def play(first_mover):
         player = invert_dict[player]
     display_board(board)
     print('Congratulations {}, you won!\n'.format(player.lower()))
-    if play_again() == True:
+    if play_again():
         player = invert_dict[player]
         play(player)
     else:
         print('Thanks for playing!')
-        return None
+        return
 
 
 def computer_move(board, piece):
