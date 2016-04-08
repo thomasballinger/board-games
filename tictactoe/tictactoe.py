@@ -5,19 +5,18 @@ def display_board(board):
     '''Returns a visual representation of the current board'''
 
     empty_row = '   |   |   '
-    token_row = ' {0} | {1} | {2} '
+    token_row = ' {} | {} | {} '
     full_row = '___|___|___'
-    print('')
-    print(empty_row)
-    print(token_row.format(board[1], board[2], board[3]))
-    print(full_row)
-    print(empty_row)
-    print(token_row.format(board[4], board[5], board[6]))
-    print(full_row)
-    print(empty_row)
-    print(token_row.format(board[7], board[8], board[9]))
-    print(empty_row)
-    print('')
+    template = '\n'.join([empty_row,
+                          token_row,
+                          full_row,
+                          token_row,
+                          full_row,
+                          token_row,
+                          empty_row])
+    print()
+    print(template.format(*board[1:]))
+    print()
 
 
 def get_move(player, board, piece):
